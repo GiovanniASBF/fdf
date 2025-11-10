@@ -6,7 +6,7 @@
 /*   By: gaguiar- <gaguiar-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 11:04:13 by gaguiar-          #+#    #+#             */
-/*   Updated: 2025/11/10 11:05:04 by gaguiar-         ###   ########.fr       */
+/*   Updated: 2025/11/10 13:00:44 by gaguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 # define FDF_H
 
 # include "libft.h"
+
+int	is_invalid_extension(char *arg);
 
 #endif

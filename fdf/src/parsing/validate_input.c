@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   validate_input.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaguiar- <gaguiar-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 11:03:35 by gaguiar-          #+#    #+#             */
-/*   Updated: 2025/11/10 13:02:05 by gaguiar-         ###   ########.fr       */
+/*   Created: 2025/11/10 11:30:30 by gaguiar-          #+#    #+#             */
+/*   Updated: 2025/11/10 12:55:30 by gaguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	main(int argc, char *argv[])
+int	is_invalid_extension(char *arg)
 {
-	if (argc != 2)
-	{
-		ft_printf("Error: Wrong number of arguments.\n");
-		ft_printf("Usage: ./fdf <map_file.fdf>\n");
+	size_t	len;
+	char	*ext;
+	size_t	ext_start;
+
+	len = ft_strlen(arg);
+	if (len < 5)
 		return (1);
-	}
-	if (is_invalid_extension(argv[1]))
-	{
-		ft_printf("Error: Invalid argument.\n");
-		return (1);
-	}
-	return (0);
+	ext = ".fdf";
+	ext_start = len - 4;
+	arg += ext_start;
+	return (ft_strncmp(arg, ext, 4));
 }
