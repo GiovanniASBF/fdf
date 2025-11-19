@@ -6,7 +6,7 @@
 /*   By: gaguiar- <gaguiar-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 11:04:13 by gaguiar-          #+#    #+#             */
-/*   Updated: 2025/11/12 10:10:44 by gaguiar-         ###   ########.fr       */
+/*   Updated: 2025/11/19 10:09:44 by gaguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "libft.h"
 # include <fcntl.h>
 # include <errno.h>
+# include <string.h>
+# include "mlx.h"
 
 int	is_valid_input(int argc, char *argv[]);
 

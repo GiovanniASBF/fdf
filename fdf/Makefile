@@ -20,8 +20,8 @@ OBJ	= $(SRC:.c=.o)
 #rules
 all: $(NAME)
 
-$(NAME): $(OBJ) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJ) $(INCLUDES) -Llibft -lft -o $(NAME)
+$(NAME): $(OBJ) $(LIBFT) $(MLX_NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(MLX_FLAGS) $(INCLUDES) -Llibft -lft -o $(NAME)
 
 %.o: %.c include/fdf.h
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
