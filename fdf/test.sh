@@ -7,7 +7,7 @@ set -e
 make test
 
 # 2. Run the test executable
-./test
+./test_runner
 
 # 3. Clean up the test files
 make tclean

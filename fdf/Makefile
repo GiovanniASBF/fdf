@@ -13,6 +13,8 @@ MLX_FLAGS	= -L$(MLX_PATH) -lmlx -lXext -lX11 -lm
 
 #SRC
 SRC	= src/main.c \
+	src/parsing/parsing_utils.c \
+	src/parsing/read_map.c \
 	src/parsing/validate_input.c
 
 OBJ	= $(SRC:.c=.o)
@@ -33,19 +35,21 @@ $(MLX_NAME):
 	$(MAKE) -C $(MLX_PATH)
 
 #test
-TEST			= test
+TEST_NAME		= test_runner
 TEST_SRC		= ../testing/test.c \
+	src/parsing/parsing_utils.c \
+	src/parsing/read_map.c \
 	src/parsing/validate_input.c
 TEST_OBJ		= $(TEST_SRC:.c=.o)
 
-test: $(TEST)
+test: $(TEST_NAME)
 
-$(TEST): $(TEST_OBJ) $(LIBFT)
-	$(CC) $(CFLAGS) $(TEST_OBJ) $(INCLUDES) -Llibft -lft -o $(TEST)
+$(TEST_NAME): $(TEST_OBJ) $(LIBFT) $(MLX_NAME)
+	$(CC) $(CFLAGS) $(TEST_OBJ) $(MLX_FLAGS) $(INCLUDES) -Llibft -lft -o $(TEST_NAME)
 
 tclean:
 	$(RM) $(TEST_OBJ)
-	$(RM) $(TEST)
+	$(RM) $(TEST_NAME)
 	$(MAKE) -C libft fclean
 
 clean:

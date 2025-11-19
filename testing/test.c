@@ -2,12 +2,13 @@
 
 void	test_valid_extensions(void);
 void	test_invalid_extensions(void);
+void	test_map_dimensions(void);
 
 int	main(void)
 {
-	// parsing
 	test_valid_extensions();
 	test_invalid_extensions();
+	test_map_dimensions();
 	return (0);
 }
 
@@ -84,4 +85,23 @@ void	test_invalid_extensions(void)
 		ft_printf("	PASS: """"\n");
 	else
 		ft_printf("	FAIL: """"\n");
+}
+
+void	test_map_dimensions(void)
+{
+	t_map	test_map;
+
+	test_map.height = 0;
+	test_map.width = 0;
+
+	ft_printf("\n--- Testing Map Dimensions ---\n");
+
+	get_map_dimensions("../fdf/maps/42.fdf", &test_map);
+
+	ft_printf("Result -> Width: %d | Height: %d\n", test_map.width, test_map.height);
+
+	if (test_map.width > 0 && test_map.height > 0)
+		ft_printf(" PASS: Dimensions read successfully.\n");
+	else
+		ft_printf(" FAIL: Width or Height is 0.\n");
 }

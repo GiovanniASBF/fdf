@@ -1,27 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaguiar- <gaguiar-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 11:03:35 by gaguiar-          #+#    #+#             */
-/*   Updated: 2025/11/19 14:44:09 by gaguiar-         ###   ########.fr       */
+/*   Created: 2025/11/19 12:44:05 by gaguiar-          #+#    #+#             */
+/*   Updated: 2025/11/19 14:20:44 by gaguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	main(int argc, char *argv[])
+static int	ft_isspace(char c)
 {
-	t_map	test_map;
-
-	if (!is_valid_input(argc, argv))
+	if (c == ' ' || c == '\n' || c == '\t'
+		|| c == '\v' || c == '\f' || c == '\r')
+	{
 		return (1);
-	test_map.height = 0;
-	test_map.width = 0;
-	get_map_dimensions(argv[1], &test_map);
-	ft_printf("Expected width: %d and Expected Height: %d\n", 19, 11);
-	ft_printf("Width: %d and Height: %d\n", test_map.width, test_map.height);
-	return (0);
+	}
+	else
+		return (0);
+}
+
+int	count_words(char *str)
+{
+	int	count;
+	int	in_word;
+
+	count = 0;
+	in_word = 0;
+	while (*str)
+	{
+		if ((!ft_isspace(*str)) && in_word == 0)
+		{
+			in_word = 1;
+			count++;
+		}
+		else if (ft_isspace(*str))
+			in_word = 0;
+		str++;
+	}
+	return (count);
 }
