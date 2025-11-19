@@ -3,8 +3,13 @@ NAME		= fdf
 LIBFT		= libft/libft.a
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
-INCLUDES	= -Iinclude	-Ilibft/include
+INCLUDES	= -Iinclude	-Ilibft/include -I$(MLX_PATH)
 RM			= rm -f
+
+#MLX
+MLX_PATH	= mlx_linux
+MLX_NAME	= $(MLX_PATH)/libmlx.a
+MLX_FLAGS	= -L$(MLX_PATH) -lmlx -lXext -lX11 -lm
 
 #SRC
 SRC	= src/main.c \
@@ -23,6 +28,9 @@ $(NAME): $(OBJ) $(LIBFT)
 
 $(LIBFT):
 	$(MAKE) -C libft
+
+$(MLX_NAME):
+	$(MAKE) -C $(MLX_PATH)
 
 #test
 TEST			= test
@@ -47,6 +55,7 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 	$(MAKE) -C libft fclean
+	$(MAKE) -C $(MLX_PATH) clean
 
 re: fclean all
 
