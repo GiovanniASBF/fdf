@@ -16,7 +16,9 @@ SRC	= src/main.c \
 	src/parsing/fill_map.c \
 	src/parsing/parsing_utils.c \
 	src/parsing/read_map.c \
-	src/parsing/validate_input.c
+	src/parsing/validate_input.c \
+	src/graphics/init.c \
+	src/graphics/hooks.c 
 
 OBJ	= $(SRC:.c=.o)
 
