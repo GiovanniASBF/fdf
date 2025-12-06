@@ -6,7 +6,7 @@
 /*   By: gaguiar- <gaguiar-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 12:44:05 by gaguiar-          #+#    #+#             */
-/*   Updated: 2025/11/19 14:20:44 by gaguiar-         ###   ########.fr       */
+/*   Updated: 2025/12/06 14:46:22 by gaguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,18 @@ int	count_words(char *str)
 		str++;
 	}
 	return (count);
+}
+
+void	free_split(char	**arr)
+{
+	int	i;
+
+	i = 0;
+	if (!arr)
+		return ;
+	while (arr[i])
+	{
+		free(arr[i++]);
+	}
+	free(arr);
 }

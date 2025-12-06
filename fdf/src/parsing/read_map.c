@@ -6,7 +6,7 @@
 /*   By: gaguiar- <gaguiar-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 11:35:17 by gaguiar-          #+#    #+#             */
-/*   Updated: 2025/12/06 14:36:52 by gaguiar-         ###   ########.fr       */
+/*   Updated: 2025/12/06 14:40:50 by gaguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,3 @@ void	free_map(t_map *map)
 	free(map->grid);
 	map->grid = NULL;
 }
-
-/* It needs to loop through the grid.
-
-It needs to free every row (map->grid[i]).
-
-Finally, it needs to free the spine (map->grid). */
