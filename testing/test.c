@@ -96,7 +96,7 @@ void	test_map_dimensions(void)
 
 	ft_printf("\n--- Testing Map Dimensions ---\n");
 
-	get_map_dimensions("../fdf/maps/42.fdf", &test_map);
+	get_map_dimensions("maps/42.fdf", &test_map);
 
 	ft_printf("Result -> Width: %d | Height: %d\n", test_map.width, test_map.height);
 

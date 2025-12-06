@@ -6,7 +6,7 @@
 /*   By: gaguiar- <gaguiar-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 14:44:58 by gaguiar-          #+#    #+#             */
-/*   Updated: 2025/11/06 14:47:02 by gaguiar-         ###   ########.fr       */
+/*   Updated: 2025/12/06 13:15:26 by gaguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ char	*ft_get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	head = NULL;
 	node = ft_gnl_find_node(head, fd);
 	if (!node)
 	{
