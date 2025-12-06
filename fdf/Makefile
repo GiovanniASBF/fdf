@@ -13,6 +13,7 @@ MLX_FLAGS	= -L$(MLX_PATH) -lmlx -lXext -lX11 -lm
 
 #SRC
 SRC	= src/main.c \
+	src/parsing/fill_map.c \
 	src/parsing/parsing_utils.c \
 	src/parsing/read_map.c \
 	src/parsing/validate_input.c

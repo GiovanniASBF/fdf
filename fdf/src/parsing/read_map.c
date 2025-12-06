@@ -6,14 +6,14 @@
 /*   By: gaguiar- <gaguiar-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 11:35:17 by gaguiar-          #+#    #+#             */
-/*   Updated: 2025/12/06 14:40:50 by gaguiar-         ###   ########.fr       */
+/*   Updated: 2025/12/06 16:39:25 by gaguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void		free_map(t_map *map);
-static int	get_fd(char *filename);
+void	free_map(t_map *map);
+int		get_fd(char *filename);
 
 void	get_map_dimensions(char *filename, t_map *map)
 {
@@ -44,7 +44,7 @@ void	get_map_dimensions(char *filename, t_map *map)
 	close(fd);
 }
 
-static int	get_fd(char *filename)
+int	get_fd(char *filename)
 {
 	int	fd;
 

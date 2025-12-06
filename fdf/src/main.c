@@ -6,22 +6,44 @@
 /*   By: gaguiar- <gaguiar-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 11:03:35 by gaguiar-          #+#    #+#             */
-/*   Updated: 2025/11/19 14:44:09 by gaguiar-         ###   ########.fr       */
+/*   Updated: 2025/12/06 17:26:43 by gaguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+#include <stdio.h>
 
 int	main(int argc, char *argv[])
 {
-	t_map	test_map;
+	t_map	map;
+	int		x;
+	int		y;
 
 	if (!is_valid_input(argc, argv))
 		return (1);
-	test_map.height = 0;
-	test_map.width = 0;
-	get_map_dimensions(argv[1], &test_map);
-	ft_printf("Expected width: %d and Expected Height: %d\n", 19, 11);
-	ft_printf("Width: %d and Height: %d\n", test_map.width, test_map.height);
+	map.height = 0;
+	map.width = 0;
+	map.grid = NULL;
+	// 1.Measure
+	get_map_dimensions(argv[1], &map);
+	// 2.Allocate
+	allocate_map(&map);
+	// 3.Fill
+	fill_map(argv[1], &map);
+	// --- TEST CASE ---
+	printf("Map Dimensions: %dx%d\n", map.width, map.height);
+	y = 0;
+	while (y < map.height)
+	{
+		x = 0;
+		while (x < map.width)
+		{
+			printf("%3d", map.grid[y][x]);
+			x++;
+		}
+		printf("\n");
+		y++;
+	}
+	free_map(&map);
 	return (0);
 }
