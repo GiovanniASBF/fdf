@@ -6,12 +6,13 @@
 /*   By: gaguiar- <gaguiar-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 11:35:17 by gaguiar-          #+#    #+#             */
-/*   Updated: 2025/12/06 13:19:33 by gaguiar-         ###   ########.fr       */
+/*   Updated: 2025/12/06 14:36:52 by gaguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+void		free_map(t_map *map);
 static int	get_fd(char *filename);
 
 void	get_map_dimensions(char *filename, t_map *map)
@@ -56,3 +57,42 @@ static int	get_fd(char *filename)
 	}
 	return (fd);
 }
+
+void	allocate_map(t_map *map)
+{
+	int	i;
+
+	map->grid = ft_calloc(map->height, sizeof(int *));
+	if (!map->grid)
+		return ;
+	i = 0;
+	while (i < map->height)
+	{
+		map->grid[i] = malloc(sizeof(int) * map->width);
+		if (!map->grid[i])
+		{
+			free_map(map);
+			return ;
+		}
+		i++;
+	}
+}
+
+void	free_map(t_map *map)
+{
+	int	i;
+
+	if (!map->grid)
+		return ;
+	i = 0;
+	while (i < map->height)
+		free(map->grid[i++]);
+	free(map->grid);
+	map->grid = NULL;
+}
+
+/* It needs to loop through the grid.
+
+It needs to free every row (map->grid[i]).
+
+Finally, it needs to free the spine (map->grid). */
