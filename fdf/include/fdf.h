@@ -6,7 +6,7 @@
 /*   By: gaguiar- <gaguiar-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 11:04:13 by gaguiar-          #+#    #+#             */
-/*   Updated: 2025/12/06 18:11:04 by gaguiar-         ###   ########.fr       */
+/*   Updated: 2025/12/07 09:32:13 by gaguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ typedef struct s_fdf
 	t_map	map;
 	void	*mlx;
 	void	*win;
+
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
 }			t_fdf;
 
 void	allocate_map(t_map *map);
@@ -46,5 +52,6 @@ int		handle_keypress(int keysym, t_fdf *fdf);
 void	init_graphics(t_fdf *fdf);
 int		is_valid_input(int argc, char *argv[]);
 int		is_valid_extension(char *arg);
+void	my_pixel_put(t_fdf *fdf, int x, int y, int color);
 
 #endif
