@@ -6,7 +6,7 @@
 /*   By: gaguiar- <gaguiar-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 11:03:35 by gaguiar-          #+#    #+#             */
-/*   Updated: 2025/12/07 09:38:13 by gaguiar-         ###   ########.fr       */
+/*   Updated: 2025/12/29 18:29:54 by gaguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,19 @@ int	main(int argc, char *argv[])
 	mlx_hook(fdf.win, 2, 1L << 0, handle_keypress, &fdf);
 	mlx_hook(fdf.win, 17, 0, close_window, &fdf);
 	// TEST DRAW
-	int y = 200;
-	while (y < 400)
-	{
-		int x = 300;
-		while (x < 500)
-		{
-			my_pixel_put(&fdf, x, y, 0xFF0000);
-			x++;
-		}
-		y++;
-	}
+	t_point start;
+	t_point end;
+	start.x = 100;
+	start.y = 100;
+	end.x = 700;
+	end.y = 500;
+	bresenham(&fdf, start, end);
+	start.x = 100;
+	start.y = 500;
+	end.x = 700;
+	end.y = 100;
+	bresenham(&fdf, start, end);
+
 	mlx_put_image_to_window(fdf.mlx, fdf.win, fdf.img, 0, 0);
 	mlx_loop(fdf.mlx);
 	return (0);

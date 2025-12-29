@@ -6,7 +6,7 @@
 /*   By: gaguiar- <gaguiar-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 11:04:13 by gaguiar-          #+#    #+#             */
-/*   Updated: 2025/12/07 09:32:13 by gaguiar-         ###   ########.fr       */
+/*   Updated: 2025/12/29 18:30:50 by gaguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,24 @@ typedef struct s_fdf
 	int		endian;
 }			t_fdf;
 
+typedef struct s_point
+{
+	int	x;
+	int	y;
+	int	color;
+}		t_point;
+
+typedef struct s_bresenham
+{
+	int	dx;
+	int	dy;
+	int	sx;
+	int	sy;
+	int	err;
+}		t_bresenham;
+
 void	allocate_map(t_map *map);
+void	bresenham(t_fdf *fdf, t_point start, t_point end);
 int		close_window(t_fdf *fdf);
 int		count_words(char *str);
 void	fill_map(char *filename, t_map *map);
