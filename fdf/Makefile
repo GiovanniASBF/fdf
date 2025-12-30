@@ -19,8 +19,9 @@ SRC	= src/main.c \
 	src/parsing/validate_input.c \
 	src/graphics/bresenham.c \
 	src/graphics/draw.c \
-	src/graphics/init.c \
 	src/graphics/hooks.c \
+	src/graphics/init.c \
+	src/graphics/project.c
 
 OBJ	= $(SRC:.c=.o)
 
@@ -28,7 +29,7 @@ OBJ	= $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT) $(MLX_NAME)
-	$(CC) $(CFLAGS) $(OBJ) $(MLX_FLAGS) $(INCLUDES) -Llibft -lft -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(MLX_FLAGS) $(INCLUDES) -Llibft -lft -lm -o $(NAME)
 
 %.o: %.c include/fdf.h
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
