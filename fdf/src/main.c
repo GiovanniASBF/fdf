@@ -6,7 +6,7 @@
 /*   By: gaguiar- <gaguiar-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 11:03:35 by gaguiar-          #+#    #+#             */
-/*   Updated: 2025/12/30 18:08:56 by gaguiar-         ###   ########.fr       */
+/*   Updated: 2025/12/30 19:06:54 by gaguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ int	main(int argc, char *argv[])
 	fdf.zoom = 20;
 	fdf.offset_x = 300;
 	fdf.offset_y = 300;
-	mlx_hook(fdf.win, 2, 1L << 0, handle_keypress, &fdf);
+	mlx_hook(fdf.win, 2, 1L << 0, key_handle, &fdf);
+	mlx_hook(fdf.win, 4, 1L << 2, mouse_handle, &fdf);
 	mlx_hook(fdf.win, 17, 0, close_window, &fdf);
 	// TEST DRAW
 	draw_map(&fdf);

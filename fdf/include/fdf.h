@@ -6,7 +6,7 @@
 /*   By: gaguiar- <gaguiar-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 11:04:13 by gaguiar-          #+#    #+#             */
-/*   Updated: 2025/12/30 17:52:51 by gaguiar-         ###   ########.fr       */
+/*   Updated: 2025/12/30 19:06:26 by gaguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ int		handle_keypress(int keysym, t_fdf *fdf);
 void	init_graphics(t_fdf *fdf);
 int		is_valid_input(int argc, char *argv[]);
 int		is_valid_extension(char *arg);
+int		key_handle(int keycode, t_fdf *fdf);
+int		mouse_handle(int button, int x, int y, t_fdf *fdf);
 void	my_pixel_put(t_fdf *fdf, int x, int y, int color);
 void	project(t_point *p, t_fdf *fdf);
 
