@@ -18,6 +18,7 @@ SRC	= src/main.c \
 	src/parsing/read_map.c \
 	src/parsing/validate_input.c \
 	src/graphics/bresenham.c \
+	src/graphics/color.c \
 	src/graphics/controls.c \
 	src/graphics/draw.c \
 	src/graphics/draw_map.c \

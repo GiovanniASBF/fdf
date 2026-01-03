@@ -6,7 +6,7 @@
 /*   By: gaguiar- <gaguiar-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 17:51:05 by gaguiar-          #+#    #+#             */
-/*   Updated: 2025/12/30 18:06:37 by gaguiar-         ###   ########.fr       */
+/*   Updated: 2026/01/03 16:47:19 by gaguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ static t_point	project_point(int x, int y, t_fdf *fdf)
 	p.x *= fdf->zoom;
 	p.y *= fdf->zoom;
 	p.z *= fdf->zoom;
+	p.color = get_color(p.z, &fdf->map);
 	project(&p, fdf);
 	p.x += fdf->offset_x;
 	p.y += fdf->offset_y;

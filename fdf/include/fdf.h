@@ -6,7 +6,7 @@
 /*   By: gaguiar- <gaguiar-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 11:04:13 by gaguiar-          #+#    #+#             */
-/*   Updated: 2025/12/30 19:06:26 by gaguiar-         ###   ########.fr       */
+/*   Updated: 2026/01/03 16:46:31 by gaguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,13 @@
 # include <math.h>
 
 # ifndef M_PI
-#  define M_PI 3.14159265358979323846
+#  define M_PI	3.14159265358979323846
 # endif
+
+# define WHITE	0xFFFFFF
+# define RED	0xFF0000
+# define GREEN	0x00FF00
+# define BLUE	0x0000FF
 
 typedef struct s_map
 {
@@ -74,6 +79,7 @@ void	draw_map(t_fdf *fdf);
 void	fill_map(char *filename, t_map *map);
 void	free_map(t_map *map);
 void	free_split(char	**arr);
+int		get_color(int z, t_map *map);
 int		get_fd(char *filename);
 void	get_map_dimensions(char *filename, t_map *map);
 int		handle_keypress(int keysym, t_fdf *fdf);

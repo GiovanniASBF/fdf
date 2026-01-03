@@ -6,7 +6,7 @@
 /*   By: gaguiar- <gaguiar-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 18:10:34 by gaguiar-          #+#    #+#             */
-/*   Updated: 2025/12/29 18:26:07 by gaguiar-         ###   ########.fr       */
+/*   Updated: 2026/01/03 17:02:19 by gaguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	bresenham(t_fdf *fdf, t_point start, t_point end)
 	init_bresenham_params(start, end, &b);
 	while (1)
 	{
-		my_pixel_put(fdf, start.x, start.y, 0xFFFFFF);
+		my_pixel_put(fdf, start.x, start.y, start.color);
 		if (start.x == end.x && start.y == end.y)
 			break ;
 		e2 = 2 * b.err;
