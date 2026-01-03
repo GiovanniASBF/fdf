@@ -6,7 +6,7 @@
 /*   By: gaguiar- <gaguiar-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 11:03:35 by gaguiar-          #+#    #+#             */
-/*   Updated: 2025/12/30 19:24:35 by gaguiar-         ###   ########.fr       */
+/*   Updated: 2026/01/03 17:58:12 by gaguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ int	main(int argc, char *argv[])
 		fdf.zoom = 40;
 	fdf.offset_x = 400;
 	fdf.offset_y = 300 - (fdf.map.height * fdf.zoom) / 4;
+	fdf.angle_x = 0;
+	fdf.angle_y = 0;
+	fdf.angle_z = 0;
 	mlx_hook(fdf.win, 2, 1L << 0, key_handle, &fdf);
 	mlx_hook(fdf.win, 4, 1L << 2, mouse_handle, &fdf);
 	mlx_hook(fdf.win, 17, 0, close_window, &fdf);

@@ -6,11 +6,13 @@
 /*   By: gaguiar- <gaguiar-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 18:33:31 by gaguiar-          #+#    #+#             */
-/*   Updated: 2025/12/30 19:05:04 by gaguiar-         ###   ########.fr       */
+/*   Updated: 2026/01/03 19:11:22 by gaguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+static void	redraw(t_fdf *fdf);
 
 int	key_handle(int keycode, t_fdf *fdf)
 {
@@ -24,13 +26,19 @@ int	key_handle(int keycode, t_fdf *fdf)
 		fdf->offset_x -= 10;
 	if (keycode == KEY_RIGHT)
 		fdf->offset_x += 10;
-	if (fdf->img)
-		mlx_destroy_image(fdf->mlx, fdf->img);
-	fdf->img = mlx_new_image(fdf->mlx, 800, 600);
-	fdf->addr = mlx_get_data_addr(fdf->img, &fdf->bpp,
-			&fdf->line_len, &fdf->endian);
-	draw_map(fdf);
-	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->img, 0, 0);
+	if (keycode == KEY_W)
+		fdf->angle_x += 0.05;
+	if (keycode == KEY_S)
+		fdf->angle_x -= 0.05;
+	if (keycode == KEY_A)
+		fdf->angle_y -= 0.05;
+	if (keycode == KEY_D)
+		fdf->angle_y += 0.05;
+	if (keycode == KEY_Q)
+		fdf->angle_z -= 0.05;
+	if (keycode == KEY_E)
+		fdf->angle_z += 0.05;
+	redraw(fdf);
 	return (0);
 }
 
@@ -45,6 +53,12 @@ int	mouse_handle(int button, int x, int y, t_fdf *fdf)
 		if (fdf->zoom > 2)
 			fdf->zoom -= 2;
 	}
+	redraw(fdf);
+	return (0);
+}
+
+static void	redraw(t_fdf *fdf)
+{
 	if (fdf->img)
 		mlx_destroy_image(fdf->mlx, fdf->img);
 	fdf->img = mlx_new_image(fdf->mlx, 800, 600);
@@ -52,5 +66,4 @@ int	mouse_handle(int button, int x, int y, t_fdf *fdf)
 			&fdf->line_len, &fdf->endian);
 	draw_map(fdf);
 	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->img, 0, 0);
-	return (0);
 }

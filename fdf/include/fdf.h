@@ -6,7 +6,7 @@
 /*   By: gaguiar- <gaguiar-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 11:04:13 by gaguiar-          #+#    #+#             */
-/*   Updated: 2026/01/03 16:46:31 by gaguiar-         ###   ########.fr       */
+/*   Updated: 2026/01/03 17:52:21 by gaguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,10 @@ typedef struct s_fdf
 	int		zoom;
 	int		offset_x;
 	int		offset_y;
+
+	double	angle_x;
+	double	angle_y;
+	double	angle_z;
 }			t_fdf;
 
 typedef struct s_point
