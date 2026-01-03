@@ -6,7 +6,7 @@
 /*   By: gaguiar- <gaguiar-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 11:03:35 by gaguiar-          #+#    #+#             */
-/*   Updated: 2025/12/30 19:06:54 by gaguiar-         ###   ########.fr       */
+/*   Updated: 2025/12/30 19:24:35 by gaguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,13 @@ int	main(int argc, char *argv[])
 	fill_map(argv[1], &fdf.map);
 	// 3.GRAPHICS
 	init_graphics(&fdf);
-	fdf.zoom = 20;
-	fdf.offset_x = 300;
-	fdf.offset_y = 300;
+	fdf.zoom = (800 / fdf.map.width);
+	if (fdf.zoom < 2)
+		fdf.zoom = 2;
+	if (fdf.zoom > 40)
+		fdf.zoom = 40;
+	fdf.offset_x = 400;
+	fdf.offset_y = 300 - (fdf.map.height * fdf.zoom) / 4;
 	mlx_hook(fdf.win, 2, 1L << 0, key_handle, &fdf);
 	mlx_hook(fdf.win, 4, 1L << 2, mouse_handle, &fdf);
 	mlx_hook(fdf.win, 17, 0, close_window, &fdf);
